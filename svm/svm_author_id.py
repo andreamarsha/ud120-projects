@@ -25,22 +25,26 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 
 #########################################################
-### your code goes here ###
+# SVM classifier
 from sklearn import svm
 clf = svm.SVC(kernel = 'rbf', C = 10000)
 
+# Train dataset
 t0 = time()
 clf.fit(features_train, labels_train)
 print "training time:", round(time()-t0, 3), "s"
 
+# Test dataset
 t1 = time()
 pred = clf.predict(features_test)
 print "testing time:", round(time()-t1, 3), "s"
 
+# Calculate accuracy of classifier
 from sklearn.metrics import accuracy_score
 acc = accuracy_score(pred, labels_test)
 print acc
 
+# Count emails belonging to Chris (class = 1)
 print sum(pred)
 
 
