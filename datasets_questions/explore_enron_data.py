@@ -39,3 +39,9 @@ print "Number of POI = ", count_poi(enron_data)
 print "Stock belonging to James Prentice = ", enron_data['PRENTICE JAMES']['total_stock_value']
 print "Emails from Wesley Colwell to POIs = ", enron_data['COLWELL WESLEY']['from_this_person_to_poi']
 print "Stock options exercised by Jeffrey K Skilling = ", enron_data['SKILLING JEFFREY K']['exercised_stock_options']
+
+# Compare payments for Enron executives
+print "Lay : ", enron_data['LAY KENNETH L']['total_payments']
+print "Skilling : ", enron_data['SKILLING JEFFREY K']['total_payments']
+print "Fastow: ", enron_data['FASTOW ANDREW S']['total_payments']
+
