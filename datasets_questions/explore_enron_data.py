@@ -60,3 +60,13 @@ print "Known email address: ", count_non_NaN(enron_data, 'email_address')
 nan_total_payments = len(enron_data) - count_non_NaN(enron_data, 'total_payments')
 print "Non-quantified total payments: ", nan_total_payments
 print "% of non-quantified total payments: ", nan_total_payments*1.0/len(enron_data)
+
+# Count POI with NaN total payments
+def count_NaN_POI(index, feature):
+    count = 0
+    for name in index:
+        if index[name]['poi'] == 1 and index[name][feature] == 'NaN':
+            count += 1
+    return count
+
+print "POIs with NaN total payments: ", count_NaN_POI(enron_data, 'total_payments')
