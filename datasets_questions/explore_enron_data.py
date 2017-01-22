@@ -35,4 +35,7 @@ def count_poi(index):
 
 print "Number of POI = ", count_poi(enron_data)
 
-
+# Query Exercises
+print "Stock belonging to James Prentice = ", enron_data['PRENTICE JAMES']['total_stock_value']
+print "Emails from Wesley Colwell to POIs = ", enron_data['COLWELL WESLEY']['from_this_person_to_poi']
+print "Stock options exercised by Jeffrey K Skilling = ", enron_data['SKILLING JEFFREY K']['exercised_stock_options']
