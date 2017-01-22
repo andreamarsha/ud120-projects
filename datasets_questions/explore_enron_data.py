@@ -45,3 +45,13 @@ print "Lay : ", enron_data['LAY KENNETH L']['total_payments']
 print "Skilling : ", enron_data['SKILLING JEFFREY K']['total_payments']
 print "Fastow: ", enron_data['FASTOW ANDREW S']['total_payments']
 
+# Function to count non-NaN input
+def count_non_NaN(index, feature):
+    non_NaN = 0
+    for name in index:
+        if index[name][feature] != 'NaN':
+            non_NaN += 1
+    return non_NaN
+
+print "Quantified salary: ", count_non_NaN(enron_data, 'salary')
+print "Known email address: ", count_non_NaN(enron_data, 'email_address')
