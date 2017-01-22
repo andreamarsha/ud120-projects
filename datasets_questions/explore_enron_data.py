@@ -19,4 +19,20 @@ import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
+# Number of people in the dataset
+print "Number of people in the dataset = ", len(enron_data)
+
+# Number of features in the dataset
+print "Number of features in the dataset = ", len(enron_data['METTS MARK'])
+
+# Function to count the number of persons of interest
+def count_poi(index):
+    poi = 0
+    for entry in index:
+        if index[entry]['poi'] == 1:
+            poi+= 1
+    return poi
+
+print "Number of POI = ", count_poi(enron_data)
+
 
