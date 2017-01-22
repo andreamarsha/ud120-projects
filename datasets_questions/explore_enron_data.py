@@ -55,3 +55,8 @@ def count_non_NaN(index, feature):
 
 print "Quantified salary: ", count_non_NaN(enron_data, 'salary')
 print "Known email address: ", count_non_NaN(enron_data, 'email_address')
+
+# Count NaN total payments
+nan_total_payments = len(enron_data) - count_non_NaN(enron_data, 'total_payments')
+print "Non-quantified total payments: ", nan_total_payments
+print "% of non-quantified total payments: ", nan_total_payments*1.0/len(enron_data)
