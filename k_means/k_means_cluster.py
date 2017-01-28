@@ -43,6 +43,21 @@ data_dict = pickle.load( open("../final_project/final_project_dataset.pkl", "r")
 ### there's an outlier--remove it!
 data_dict.pop("TOTAL", 0)
 
+def find_max_min(dataset, feature):
+    max_value = 0
+    for name in dataset:
+        if dataset[name][feature] > max_value and dataset[name][feature] != 'NaN':
+            max_value = dataset[name][feature]
+
+    min_value = max_value
+    for name in dataset:
+        if dataset[name][feature] < min_value and dataset[name][feature] != 'NaN':
+            min_value = dataset[name][feature]
+
+    return [max_value, min_value]
+
+
+print "Max, min of exercised stock options: ", find_max_min(data_dict, 'exercised_stock_options')
 
 ### the input features we want to use
 ### can be any key in the person-level dictionary (salary, director_fees, etc.)
