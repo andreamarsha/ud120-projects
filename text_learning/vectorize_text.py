@@ -34,15 +34,15 @@ word_data = []
 ### can take a long time
 ### temp_counter helps you only look at the first 200 emails in the list so you
 ### can iterate your modifications quicker
-temp_counter = 0
+#temp_counter = 0
 
 
 for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
     for path in from_person:
         ### only look at first 200 emails when developing
         ### once everything is working, remove this line to run over full dataset
-        temp_counter += 1
-        if temp_counter < 200:
+#        temp_counter += 1
+ #       if temp_counter < 200:
             path = os.path.join('..', path[:-1])
             print path
             email = open(path, "r")
@@ -55,7 +55,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
             words_to_remove = ["sara", "shackleton", "chris", "germani"]
             for word in words_to_remove:
                 if word in email_text:
-                    email_text.replace(word, "")
+                    email_text = email_text.replace(word, "")
 
             ### append the text to word_data
             word_data.append(email_text)
@@ -80,5 +80,11 @@ print word_data[152]
 
 
 ### in Part 4, do TfIdf vectorization here
+from sklearn.feature_extraction.text import TfidfVectorizer
+vectorizer = TfidfVectorizer(stop_words="english", lowercase=True)
+tfidf_matrix = vectorizer.fit_transform(word_data)
+word_list = vectorizer.get_feature_names()
+print len(word_list)
+print word_list[34597]
 
 
