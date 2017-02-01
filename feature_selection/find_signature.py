@@ -52,4 +52,5 @@ importances = clf.feature_importances_
 for i in range(len(importances)):
     if importances[i] > 0.2:
         print i, ": ", importances[i]
+        print vectorizer.get_feature_names()[i]
 
