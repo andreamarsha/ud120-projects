@@ -47,5 +47,9 @@ from sklearn.metrics import accuracy_score
 acc = accuracy_score(pred, labels_test)
 print acc
 
-
+### find feature importances
+importances = clf.feature_importances_
+for i in range(len(importances)):
+    if importances[i] > 0.2:
+        print i, ": ", importances[i]
 
